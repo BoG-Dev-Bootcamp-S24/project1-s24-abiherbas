@@ -218,20 +218,38 @@ nav button.active {
   width: 60%;
 }
 
+/*ABOUT*/
 
-/*HOME - BODY
-clip-path: inset(0% 30% 0% 0%);
-<div className='home-body'>
-            <div className='home-sched-cont'>
-                <h2 home-routes-header >VIEW ROUTES SCHEDULE</h2>
-                <div className='home-routes'>
-                    <Link to="/lines/gold" className='home-route-link'>Gold Line</Link>
-                    <Link to="/lines/red" className='home-route-link'>Red Line</Link>
-                    <Link to="/lines/green" className='home-route-link'>Green Line</Link>
-                    <Link to="/lines/blue" className='home-route-link'>Blue Line</Link>
-                </div>
-            </div>
-            <div className='home-img-cont'>
-                <img src="https://www.progressiverailroading.com/resources/editorial/2019/PR1119-MARTA-40.jpg"></img>
-            </div>
-        </div>*/
+.about-banner-img {
+  height: 10vh;
+  width: auto;
+}
+
+.about-body {
+  display: flex;
+  justify-content: row;
+  height: 90vh;
+}
+
+.about-map {
+  height: 100%;
+}
+
+.about-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5%;
+}
+
+.about-text p {
+  font: 20px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 350;
+}
+/* <img className='about-banner-img' src='https://npuw.files.wordpress.com/2021/11/img_1070.png?w=1024'></img>
+            <div className='about-body'>
+                <img className='about-map' src='https://preview.itsmarta.com/uploadedimages/train-stations-map-2020.jpg'></img>
+                <p className='mission'>For over a quarter of a century, MARTA has moved over 3.5 billion people throughout Atlanta and the surrounding cities. We have been a staple to the community and a great economic driver for the city.  Today, we are among the largest transit agency in the United States and we are striving to be bigger and better.  While our opportunities for growth are eminent, our commitment to our customers and our communities in which we operate is even greater.</p>
+                <p className='about-text'> */
+
