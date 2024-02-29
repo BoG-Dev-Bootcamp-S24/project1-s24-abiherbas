@@ -15,17 +15,17 @@ const Home = () => {
         </div>
 
         <div className='home-body'>
-            <div>
-                <h2>VIEW ROUTES SCHEDULE</h2>
-                <div>
-                    <button><Link to="/lines/gold">Gold Line</Link></button>
-                    <button><Link to="/lines/red">Red Line</Link></button>
-                    <button><Link to="/lines/green">Green Line</Link></button>
-                    <button><Link to="/lines/blue">Blue Line</Link></button>
-                </div>
+            <div className='home-img-cont'>
+                <img className='home-img' src="https://www.progressiverailroading.com/resources/editorial/2019/PR1119-MARTA-40.jpg"></img>
             </div>
-            <div>
-                <img src="https://www.progressiverailroading.com/resources/editorial/2019/PR1119-MARTA-40.jpg"></img>
+            <div className='home-sched-cont'>
+                <h2 className='home-routes-header'>VIEW ROUTES SCHEDULE</h2>
+                <div className='home-routes'>
+                    <Link to="/lines/gold" className='home-route-link'>Gold Line</Link>
+                    <Link to="/lines/red" className='home-route-link'>Red Line</Link>
+                    <Link to="/lines/green" className='home-route-link'>Green Line</Link>
+                    <Link to="/lines/blue" className='home-route-link'>Blue Line</Link>
+                </div>
             </div>
         </div>
     </div>

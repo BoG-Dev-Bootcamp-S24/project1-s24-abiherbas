@@ -118,13 +118,15 @@ nav button.active {
   float: left;
 }
 
+/*HOME - BANNER*/
+
 .home-banner {
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   height: 10vh;
-  border-bottom: 2px solid transparent; /* Ensure the border is transparent initially */
+  border-bottom: 2px solid transparent;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -158,3 +160,78 @@ nav button.active {
 .about-link:visited {
   color: black;
 }
+
+/*HOME - BODY*/
+
+.home-body {
+  display: flex;
+  flex-direction: row;
+  height: 90vh;
+  width: 100vw;
+}
+
+.home-sched-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 40%;
+  
+  border-top: 2px solid rgba(0, 0, 0, 0.1);
+  background-color: white;
+}
+
+.home-routes-header {
+  font: bold 35px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display:flex;
+  height: 20%;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-routes {
+  display: flex;
+  flex-direction: column;
+  height: 40%;
+  margin-bottom: 15%;
+}
+
+.home-route-link {
+  font: 30px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 350;
+  color: black;
+  text-decoration: none;
+  
+  height:15%;
+  text-align: left;
+  padding-left: 10%;
+  border-bottom: 1px solid black;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-bottom: 5%;
+}
+
+.home-img-cont {
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  width: 60%;
+}
+
+
+/*HOME - BODY
+clip-path: inset(0% 30% 0% 0%);
+<div className='home-body'>
+            <div className='home-sched-cont'>
+                <h2 home-routes-header >VIEW ROUTES SCHEDULE</h2>
+                <div className='home-routes'>
+                    <Link to="/lines/gold" className='home-route-link'>Gold Line</Link>
+                    <Link to="/lines/red" className='home-route-link'>Red Line</Link>
+                    <Link to="/lines/green" className='home-route-link'>Green Line</Link>
+                    <Link to="/lines/blue" className='home-route-link'>Blue Line</Link>
+                </div>
+            </div>
+            <div className='home-img-cont'>
+                <img src="https://www.progressiverailroading.com/resources/editorial/2019/PR1119-MARTA-40.jpg"></img>
+            </div>
+        </div>*/
