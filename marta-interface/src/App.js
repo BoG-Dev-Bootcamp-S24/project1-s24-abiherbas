@@ -2,7 +2,12 @@
 import React, { useEffect } from 'react';
 import './App.css';
 import LinesPage from './pages/LinesPage';
-import TrainList from './pages/TrainList';
+import Home from './pages/Home';
+import About from './pages/About';
+
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+
+
 
 function App() {
   const url = 'https://midsem-bootcamp-api.onrender.com/stations/red';
@@ -29,8 +34,17 @@ function App() {
 
   return (
     <div className="App">
-      <LinesPage />
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/lines/:color" element={<LinesPage />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </Router>
     </div>
+    /*<div className="App">
+      <LinesPage />
+    </div>*/
   );
 }
 

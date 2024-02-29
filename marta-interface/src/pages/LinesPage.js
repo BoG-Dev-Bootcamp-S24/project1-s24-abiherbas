@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import NavBar from '../components/Navbar.js';
 import TrainList from '../pages/TrainList.js';
+import { useParams } from 'react-router-dom';
 
 export default function LinesPage() {
-  const [currColor, setCurrColor] = useState('blue');
+  const { color } = useParams(); //passed from home
+
+  const [currColor, setCurrColor] = useState(color);
   const [data, setData] = useState([]); //all data
   const [stations, setStations] = useState([]);
   const [prepData, setPrepData] = useState([]); //have outgoing station specific data, what we'll show and send out to trainlist
