@@ -3,46 +3,61 @@ import NavBar from '../components/Navbar.js';
 import TrainList from '../pages/TrainList.js';
 
 export default function LinesPage() {
-  const [currColor, setCurrColor] = useState('blue'); // default to 'blue' line bc it runs at night
-  const [loading, setLoading] = useState(true);
-  const [data, setData] = useState([]);
+  const [currColor, setCurrColor] = useState('blue');
+  const [data, setData] = useState([]); //all data
   const [stations, setStations] = useState([]);
+  const [prepData, setPrepData] = useState([]); //have outgoing station specific data, what we'll show and send out to trainlist
 
   useEffect(() => {
     async function fetchData() {
-      setLoading(true); // load before fetching data
       try {
         const response = await fetch(`https://midsem-bootcamp-api.onrender.com/arrivals/${currColor}`);
-        // error handling
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`); //if response not OK, throw error
-        }
         const jsonData = await response.json();
-        setData(jsonData); // data = JSON from the response
+        setData(jsonData);
       } catch (error) {
-        console.error("Fetching trains data error: ", error);
-        setData([]); // In case of an error, fall back to default empty data
-      } finally {
-        setLoading(false); // Stop loading regardless of the fetch result
+        setData([]);
       }
     }
 
     fetchData();
-  }, [currColor]); // run the effect only when currColor changes
+  }, [currColor]);
+
+  useEffect(() => {
+    async function fetchStations() {
+      try {
+        const response = await fetch(`https://midsem-bootcamp-api.onrender.com/stations/${currColor}`);
+        const jsonData = await response.json();
+        setStations(jsonData);
+      } catch (error) {
+        setStations([]);
+      }
+    }
+
+    fetchStations();
+  }, [currColor]);
+
+  useEffect(() => {
+    setPrepData(data);
+  }, [data]);
+
+  const handleStationClick = (station) => {
+    if (station === 'All Stations') {
+      setPrepData(data); // Show all data
+    } else {
+      const filtered = data.filter(train => train.STATION === (station.toUpperCase() + ' STATION'));
+      setPrepData(filtered); // Show data for specific station
+    }
+  };
+
 
   const handleLineChange = (color) => {
     setCurrColor(color);
   };
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-
   return (
     <div>
-      <NavBar color={currColor} onLineChange={handleLineChange} />
-      <TrainList color={currColor} data={data} />
+      <NavBar color={currColor} onLineChange={handleLineChange} stations={stations} onStationClick={handleStationClick}/>
+      <TrainList color={currColor} data={prepData} />
     </div>
   );
-}
+};

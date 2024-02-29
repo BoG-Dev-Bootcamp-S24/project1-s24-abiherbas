@@ -111,3 +111,9 @@ nav button.active {
   background-color: pink;
   margin-left:auto;
 }
+
+.station-list {
+  background-color: greenyellow;
+  width: 30vw;
+  float: left;
+}
