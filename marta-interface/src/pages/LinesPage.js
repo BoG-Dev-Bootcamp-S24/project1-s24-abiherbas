@@ -6,6 +6,7 @@ export default function LinesPage() {
   const [currColor, setCurrColor] = useState('blue'); // default to 'blue' line bc it runs at night
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [stations, setStations] = useState([]);
 
   useEffect(() => {
     async function fetchData() {

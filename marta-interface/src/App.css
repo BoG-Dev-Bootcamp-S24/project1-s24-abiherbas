@@ -101,3 +101,13 @@ nav button.active {
 .train.on-time .train-status {
   background-color: #2ecc40;
 }
+
+/*Abi's section*/
+
+.train-list {
+  display: flex;
+  flex-direction: column;
+  width: 70vw;
+  background-color: pink;
+  margin-left:auto;
+}
