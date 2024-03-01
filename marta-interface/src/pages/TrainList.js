@@ -76,27 +76,32 @@ const TrainList = ({ color, data }) => {
     return true;
   });
 
-  const filteredData = dir2filteredData.filter(train => true); //FINISH filtering by scheduled?
-  
+  const filteredData = dir2filteredData.filter(train => { //filter by scheduled 
+    if (sched && train.WAITING_TIME === 'Arriving') {
+      return false;
+    }
+    return true;
+  });
+
 
   return (
     <div className="train-list">
     
       {(color === 'gold' || color === 'red') ? 
       (
-        <div>
-        <button onClick={handleArrivingClick} style={{ background: arr ? 'black' : 'white' , color: arr ? 'white' : 'black'}}>Arriving</button>
-        <button onClick={handleScheduledClick} style={{ background: sched ? 'black' : 'white' , color: sched ? 'white' : 'black'}}>Scheduled</button>
-        <button onClick={handleNorthboundClick} style={{ background: northbound ? 'black' : 'white' , color: northbound ? 'white' : 'black'}}>Northbound</button>
-        <button onClick={handleSouthboundClick} style={{ background: southbound ? 'black' : 'white' , color: southbound ? 'white' : 'black'}}>Southbound</button>
+        <div className='filter-cont'>
+        <button className='filter' onClick={handleArrivingClick} style={{ background: arr ? 'black' : 'white' , color: arr ? 'white' : 'black'}}>Arriving</button>
+        <button className='filter' onClick={handleScheduledClick} style={{ background: sched ? 'black' : 'white' , color: sched ? 'white' : 'black'}}>Scheduled</button>
+        <button className='filter' onClick={handleNorthboundClick} style={{ background: northbound ? 'black' : 'white' , color: northbound ? 'white' : 'black'}}>Northbound</button>
+        <button className='filter' onClick={handleSouthboundClick} style={{ background: southbound ? 'black' : 'white' , color: southbound ? 'white' : 'black'}}>Southbound</button>
         </div>
       ) 
       : (
-        <div>
-        <button onClick={handleArrivingClick} style={{ background: arr ? 'black' : 'white' , color: arr ? 'white' : 'black'}}>Arriving</button>
-        <button onClick={handleScheduledClick} style={{ background: sched ? 'black' : 'white' , color: sched ? 'white' : 'black'}}>Scheduled</button>
-        <button onClick={handleEastboundClick} style={{ background: eastbound ? 'black' : 'white' , color: eastbound ? 'white' : 'black'}}>Eastbound</button>
-        <button onClick={handleWestboundClick} style={{ background: westbound ? 'black' : 'white' , color: westbound ? 'white' : 'black'}}>Westbound</button>
+        <div className='filter-cont'>
+        <button className='filter' onClick={handleArrivingClick} style={{ background: arr ? 'black' : 'white' , color: arr ? 'white' : 'black'}}>Arriving</button>
+        <button className='filter' onClick={handleScheduledClick} style={{ background: sched ? 'black' : 'white' , color: sched ? 'white' : 'black'}}>Scheduled</button>
+        <button className='filter' onClick={handleEastboundClick} style={{ background: eastbound ? 'black' : 'white' , color: eastbound ? 'white' : 'black'}}>Eastbound</button>
+        <button className='filter' onClick={handleWestboundClick} style={{ background: westbound ? 'black' : 'white' , color: westbound ? 'white' : 'black'}}>Westbound</button>
         </div>
       )}
     
@@ -115,7 +120,7 @@ const TrainList = ({ color, data }) => {
           />
         ))
       ) : (
-        <p>No trains available for the {color} line.</p>
+        <p>No {color} trains available</p>
       )}
     </div>
     </div>
